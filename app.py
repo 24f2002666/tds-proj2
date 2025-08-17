@@ -1185,5 +1185,6 @@ async def diagnose(full: bool = Query(False, description="If true, run extended 
     report["elapsed_seconds"] = (datetime.utcnow() - started).total_seconds()
     return report
 
-
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
